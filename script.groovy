@@ -15,7 +15,7 @@ def buildImage() {
 def deployApp() {
     steps {
         script {
-            def dockerCMD = "docker -p 3080:3080 -d run nikila99/java-maven-appma-2.0:jma-2.0"
+            def dockerCMD = "docker run -p 3080:3080 -d  nikila99/java-maven-appma-2.0:jma-2.0"
             sshagent(['azurevm1']) {
                sh "ssh -o StrictHostKeyChecking=no azureuser@20.120.152.114 ${dockerCMD}"
             }
